@@ -11,6 +11,8 @@ First things first: I am NOT responsible if this does any harm to your system! I
 
 Please report bugs and don't expect everything to work.  There are a few things I need to work out how to fix (The swap from KODI to Retropie isn't as smooth as I'd like. 
 
+I haven't tested it from Github yet. 
+
 This will only work on a Raspberry Pi 1 or 2! NOT on the Vero.
 Installation
 
