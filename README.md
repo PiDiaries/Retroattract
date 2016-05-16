@@ -24,6 +24,7 @@ Credits
 
 RetroPie 
 OSMC 
-mcobit for his Retrosmc.  
+mcobit for his Retrosmc. 
+And Andrew Mickelson for his Attract-mode information.  
 Without the above I would have nothing.
 Thanks to any one who gives it a go. 
