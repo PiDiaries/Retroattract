@@ -35,8 +35,8 @@ do
 
 # download the attract_mode scripts 
 
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://github.com/PiDiaries/Attract/blob/master/master/scripts/attract.sh
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://github.com/PiDiaries/Attract/blob/master/master/scripts/attract_watchdog.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://github.com/PiDiaries/Retroattract/blob/master/scripts/attract.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://github.com/PiDiaries/Retroattract/blob/master/scripts/attract_watchdog.sh
             chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
 
@@ -50,7 +50,7 @@ do
 
 # restart script
 
-            exec /home/osmc/install-retrosmc.sh
+            exec /home/osmc/install-attract.sh
             ;;
         2)
 
@@ -70,7 +70,7 @@ do
 
 # restart script
 
-            exec /home/osmc/install-attractmode.sh
+            exec /home/osmc/install-attract.sh
             ;;
         3)
 
