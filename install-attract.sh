@@ -15,11 +15,11 @@ source "/home/osmc/RetroPie/scripts/retrosmc-config.cfg"
 
 cmd=(dialog --backtitle "attractmode scripts installation - Version $CURRENT_VERSION" --menu "Welcome to the attractmode installation.\nWhat would you like to do?\n " 14 50 16)
 
-options=(1 "Install retrosmc"
+options=(1 "Install attract"
          2 "Install Launcher Addon"
          3 "Remove Launcher Addon"
          4 "Update scripts"
-         5 "compile Atrract_Mode *if not already done do this first*")
+         5 "compile Attract_Mode *if not already done do this first*")
          
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 
@@ -36,8 +36,8 @@ do
 
 # download the attract_mode scripts 
 
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://github.com/PiDiaries/Retroattract/blob/master/scripts/attract.sh
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://github.com/PiDiaries/Retroattract/blob/master/scripts/attract_watchdog.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/scripts/attract.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/scripts/attract_watchdog.sh
             chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
 
@@ -58,7 +58,7 @@ do
 
 # get the addon archive file from github
 
-	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tar.gz https://github.com/PiDiaries/Attract/blob/master/master/plugin.program.attract-launcher-0.0.1.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
+	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tar.gz https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/plugin.program.attract-launcher-0.0.1.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
 
 # extract the addon to the kodi addon directory
 
@@ -88,9 +88,9 @@ do
 
 # download new versions of all scripts and make them executable
 
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh.1 https://github.com/PiDiaries/Attract/blob/master/master/scripts/attract.sh
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh.1 https://github.com/PiDiaries/Attract/blob/master/master/scripts/attract_watchdog.sh
-            wget --no-check-certificate -w 4 -O /home/osmc/install-attract.sh.1 https://github.com/PiDiaries/Attract/blob/master/master/install-attract.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/master/scripts/attract.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/master/scripts/attract_watchdog.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/install-attract.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/master/install-attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract.sh.1
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh.1
             chmod +x /home/osmc/install-attract.sh.1
@@ -133,7 +133,7 @@ do
 	    sudo make install
 # restart script
 
-            exec /home/osmc/install-retrosmc.sh
+            exec /home/osmc/install-attract.sh
             ;;	    
     esac
 done
