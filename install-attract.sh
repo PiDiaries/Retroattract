@@ -18,7 +18,8 @@ cmd=(dialog --backtitle "attractmode scripts installation - Version $CURRENT_VER
 options=(1 "Install retrosmc"
          2 "Install Launcher Addon"
          3 "Remove Launcher Addon"
-         4 "Update scripts")
+         4 "Update scripts"
+         5 "compile Atrract_Mode *if not already done do this first*")
          
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 
@@ -104,6 +105,36 @@ do
 
             exec /home/osmc/install-attract.sh
             ;;
+        5)
+            
+#download compile and install Attract-Mode
+	    cd ~
+	    mkdir develop
+	    
+#Install "Smfl-pi" And Attract-Mode Dependancies
+
+	   sudo apt-get install cmake libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg62-turbo-dev libfreetype6-dev  libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev libavresample-dev libfontconfig1-dev 
+
+#Download and build sfml-pi
+
+	    cd ~/develop
+	    git clone --depth 1 https://github.com/mickelson/sfml-pi sfml-pi
+	    mkdir sfml-pi/build;cd sfml-pi/build
+	    cmake .. -DSFML_RPI=1 -DEGL_INCLUDE_DIR=/opt/vc/include -DEGL_LIBRARY=/opt/vc/lib/libEGL.so -DGLES_INCLUDE_DIR=/opt/vc/include -DGLES_LIBRARY=/opt/vc/lib/libGLESv1_CM.so
+	    sudo make install
+	    sudo ldconfig
+	    
+#Download and build Attract-Mode
+
+	    cd ~/develop
+	    git clone --depth 1 https://github.com/mickelson/attract attract
+	    cd attract
+	    make USE_GLES=1
+	    sudo make install
+# restart script
+
+            exec /home/osmc/install-retrosmc.sh
+            ;;	    
     esac
 done
 Status API Training Shop Blog About
