@@ -96,7 +96,7 @@ do
 
 # replace old with new scripts
 
-            mv /home/osmc/install-retrosmc.sh.1 /home/osmc/install-retrosmc.sh
+            mv /home/osmc/install-attract.sh.1 /home/osmc/install-attract.sh
             mv /home/osmc/RetroPie/scripts/attract.sh.1 /home/osmc/RetroPie/scripts/attract.sh
             mv /home/osmc/RetroPie/scripts/attract_watchdog.sh.1 /home/osmc/RetroPie/scripts/attract_watchdog.sh
 
