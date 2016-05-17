@@ -161,20 +161,26 @@ _EOF_
         4)
 
 # download new versions of all scripts and make them executable
-
+	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/retropie.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/scripts/retropie.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/scripts/retropie_watchdog.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/install-retrosmc.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/install-retrosmc.sh
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/master/scripts/attract.sh
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/master/scripts/attract_watchdog.sh
             wget --no-check-certificate -w 4 -O /home/osmc/install-attract.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/master/install-attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract.sh.1
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh.1
             chmod +x /home/osmc/install-attract.sh.1
-
+	    chmod +x /home/osmc/RetroPie/scripts/retropie.sh.1
+            chmod +x /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1
+            chmod +x /home/osmc/install-retrosmc.sh.1
 # replace old with new scripts
 
             mv /home/osmc/install-attract.sh.1 /home/osmc/install-attract.sh
             mv /home/osmc/RetroPie/scripts/attract.sh.1 /home/osmc/RetroPie/scripts/attract.sh
             mv /home/osmc/RetroPie/scripts/attract_watchdog.sh.1 /home/osmc/RetroPie/scripts/attract_watchdog.sh
-
+	    mv /home/osmc/install-retrosmc.sh.1 /home/osmc/install-retrosmc.sh
+            mv /home/osmc/RetroPie/scripts/retropie.sh.1 /home/osmc/RetroPie/scripts/retropie.sh
+            mv /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1 /home/osmc/RetroPie/scripts/retropie_watchdog.sh
 # restart script
 
             exec /home/osmc/install-attract.sh
