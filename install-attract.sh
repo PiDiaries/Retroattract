@@ -126,7 +126,10 @@ _EOF_
 
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/scripts/attract.sh
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/scripts/attract_watchdog.sh
-            chmod +x /home/osmc/RetroPie/scripts/attract.sh
+            
+ # make executable 
+ 
+ 	    chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
 
 
