@@ -132,7 +132,7 @@ _EOF_
 
 # get the addon archive file from github
 
-	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tgz https://github.com/PiDiaries/Retroattract/blob/master/plugin.program.attract-launcher-0.0.1.tgz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
+	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tgz https://github.com/PiDiaries/Retroattract/raw/master/plugin.program.attract-launcher-0.0.1.tgz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
 
 # extract the addon to the kodi addon directory
 
