@@ -88,7 +88,7 @@ _EOF_
 	
 # restart script
 
-            exec /home/osmc/install-retrosmc.sh
+            exec /home/osmc/install-attract.sh
             ;;	
 	
 	2)
