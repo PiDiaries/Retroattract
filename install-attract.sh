@@ -173,11 +173,11 @@ _EOF_
             wget --no-check-certificate -w 4 -O /home/osmc/install-attract.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/master/install-attract.sh                                 chmod +x /home/osmc/RetroPie/scripts/attract.sh.1
 
 # make executable            
-            chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh.1
-            chmod +x /home/osmc/install-attract.sh.1
-	    chmod +x /home/osmc/RetroPie/scripts/retropie.sh.1
-            chmod +x /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1
-            chmod +x /home/osmc/install-retrosmc.sh.1
+        chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh.1
+        chmod +x /home/osmc/install-attract.sh.1
+	chmod +x /home/osmc/RetroPie/scripts/retropie.sh.1
+        chmod +x /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1
+        chmod +x /home/osmc/install-retrosmc.sh.1
 
 # replace old with new scripts
 
