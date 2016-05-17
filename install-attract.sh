@@ -15,8 +15,8 @@ source "/home/osmc/RetroPie/scripts/retrosmc-config.cfg"
 
 cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VERSION" --menu "Welcome to the Attract-Mode Installation.\nWhat would you like to do?\n " 14 50 16)
 
-options=(1 "Install  Retrosmc + Attract-mode"
-         2 "Install Launcher Addon"
+options=(1 "Install  Retrosmc"
+	 2 "Install Attract-Mode"
          3 "Remove Launcher Addon"
          4 "Update scripts"
          )
@@ -74,8 +74,19 @@ amixer set PCM 100
 </inputList>
 _EOF_
             fi
+# get the addon archive file from github
 
+	wget --no-check-certificate -w 4 -O plugin.program.retropie-launcher-0.0.1.tgz https://github.com/mcobit/retrosmc/raw/master/plugin.program.retropie-launcher-0.0.1.tgz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
+	
+	# extract the addon to the kodi addon directory
 
+	  (pv -n plugin.program.retropie-launcher-0.0.1.tgz | sudo tar xzf - -C /home/osmc/ ) 2>&1 | dialog --title "Extracting Addon" --gauge "\nPlease wait...\n" 11 70
+	  dialog --backtitle "RetroPie-OSMC setup script" --title "Installing Addon" --msgbox "\nAddon installed.\n" 11 70
+       
+# remove archive file
+	rm  plugin.program.retropie-launcher-0.0.1.tgz
+	
+	2)
 # install some programs needed to run the installation 
 
             sudo apt-get update 2>&1 | dialog --title "Updating package database..." --infobox "\nPlease wait...\n" 11 70
@@ -113,9 +124,18 @@ _EOF_
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
 
 
+# get the addon archive file from github
 
+	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tar.gz https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/plugin.program.attract-launcher-0.0.1.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70 
+	
+	 # extract the addon to the kodi addon directory
 
+	  (pv -n plugin.program.attract-launcher-0.0.1.tar.gz | sudo tar xzf - -C /home/osmc/ ) 2>&1 | dialog --title "Extracting Addon" --gauge "\nPlease wait...\n" 11 70
+	  dialog --backtitle "Attract-Mode setup script" --title "Installing Addon" --msgbox "\nAddon installed.\n" 11 70
+	  
+# remove archive file
 
+          rm plugin.program.attract-launcher-0.0.1.tar.gz
 # end installation
 
             dialog --title "FINISHED!" --msgbox "\nEnjoy your Attract-Mode installation!\nPress OK to return to the menu.\n" 11 70
@@ -124,24 +144,9 @@ _EOF_
 
             exec /home/osmc/install-attract.sh
             ;;
-        2)
+        
 
 
-# get the addon archive file from github
-
-	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tar.gz https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/plugin.program.attract-launcher-0.0.1.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
-	  wget --no-check-certificate -w 4 -O plugin.program.retropie-launcher-0.0.1.tgz https://github.com/mcobit/retrosmc/raw/master/plugin.program.retropie-launcher-0.0.1.tgz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
-
-# extract the addon to the kodi addon directory
-
-	  (pv -n plugin.program.attract-launcher-0.0.1.tar.gz | sudo tar xzf - -C /home/osmc/ ) 2>&1 | dialog --title "Extracting Addon" --gauge "\nPlease wait...\n" 11 70
-	  dialog --backtitle "Attract-Mode setup script" --title "Installing Addon" --msgbox "\nAddon installed.\n" 11 70
-	  (pv -n plugin.program.retropie-launcher-0.0.1.tgz | sudo tar xzf - -C /home/osmc/ ) 2>&1 | dialog --title "Extracting Addon" --gauge "\nPlease wait...\n" 11 70
-	  dialog --backtitle "RetroPie-OSMC setup script" --title "Installing Addon" --msgbox "\nAddon installed.\n" 11 70
-
-# remove archive file
-
-          rm plugin.program.attract-launcher-0.0.1.tar.gz plugin.program.retropie-launcher-0.0.1.tgz
 
 # restart script
 
@@ -187,5 +192,4 @@ _EOF_
             ;;
     esac
 done
-Status API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help
+
