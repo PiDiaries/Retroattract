@@ -151,13 +151,6 @@ _EOF_
             exec /home/osmc/install-attract.sh
             ;;
         
-
-
-
-# restart script
-
-            exec /home/osmc/install-attract.sh
-            ;;
         3)
 
 # delete the addon from kodi addon directory
