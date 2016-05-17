@@ -124,8 +124,8 @@ _EOF_
 	    
 # download the attract_mode scripts 
 
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/scripts/attract.sh
-            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/blob/master/scripts/attract_watchdog.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract_watchdog.sh
             
  # make executable 
  
