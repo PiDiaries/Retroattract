@@ -17,7 +17,7 @@ cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VE
 
 options=(1 "Install  Retrosmc"
 	 2 "Install Attract-Mode"
-         3 "Remove Launcher Addon"
+         3 "Remove Launcher Addons"
          4 "Update scripts"
          )
          
@@ -86,7 +86,13 @@ _EOF_
 # remove archive file
 	rm  plugin.program.retropie-launcher-0.0.1.tgz
 	
+# restart script
+
+            exec /home/osmc/install-retrosmc.sh
+            ;;	
+	
 	2)
+	
 # install some programs needed to run the installation 
 
             sudo apt-get update 2>&1 | dialog --title "Updating package database..." --infobox "\nPlease wait...\n" 11 70
