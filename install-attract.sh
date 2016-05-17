@@ -132,15 +132,16 @@ _EOF_
 
 # get the addon archive file from github
 
-	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tgz https://github.com/PiDiaries/Retroattract/raw/master/plugin.program.attract-launcher-0.0.1.tgz
-	 # extract the addon to the kodi addon directory
+	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tgz https://github.com/PiDiaries/Retroattract/blob/master/plugin.program.attract-launcher-0.0.1.tgz?raw=true 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
 
-	  (pv -n plugin.program.attract-launcher-0.0.1.tgz | sudo tar xzf - -C /home/osmc/ ) 2>&1 | dialog --title "Extracting Addon" --gauge "\nPlease wait...\n" 11 70
+# extract the addon to the kodi addon directory
+
+	  (pv -n plugin.program.retropie-launcher-0.0.1.tgz | sudo tar xzf - -C /home/osmc/ ) 2>&1 | dialog --title "Extracting Addon" --gauge "\nPlease wait...\n" 11 70
 	  dialog --backtitle "Attract-Mode setup script" --title "Installing Addon" --msgbox "\nAddon installed.\n" 11 70
-	  
+
 # remove archive file
 
-          rm plugin.program.attract-launcher-0.0.1.tar.gz
+          rm plugin.program.attract-launcher-0.0.1.tgz
 # end installation
 
             dialog --title "FINISHED!" --msgbox "\nEnjoy your Attract-Mode installation!\nPress OK to return to the menu.\n" 11 70
