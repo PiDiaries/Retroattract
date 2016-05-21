@@ -37,5 +37,9 @@ OSMC
 mcobit for his Retrosmc. 
 And Andrew Mickelson for his Attract-mode information.  
 Without the above I would have nothing.
+The people over at http://attractmode.org/ for their themes
+Floob https://www.youtube.com/channel/UCdSu9Y0xAyY8V77vj6mQ-0g for his videos
+
+
 Thanks to any one who gives it a go. 
 http://pi-diaries.blogspot.co.uk/
