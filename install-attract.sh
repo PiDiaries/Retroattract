@@ -136,14 +136,14 @@ _EOF_
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract_watchdog.sh
             wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/themes.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/themes.sh
             wget --no-check-certificate -w 4 -O /home/osmc/.attract/emulators/scripts.cfg https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/scripts.cfg
-            wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/shutdown.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/shutdown.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/Shutdown.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/Shutdown.sh
             
  # make executable 
  
  	    chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
             chmod +x /home/osmc/.attract/scripts/themes.sh
-            chmod +x /home/osmc/.attract/scripts/shutdown.sh
+            chmod +x /home/osmc/.attract/scripts/Shutdown.sh
             
             
 # get the addon archive file from github
@@ -196,8 +196,10 @@ _EOF_
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/scripts/retropie_watchdog.sh
             wget --no-check-certificate -w 4 -O /home/osmc/install-retrosmc.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/install-retrosmc.sh
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract.sh
-	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract_watchdog.sh
-	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/install-attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/install-attract.sh
+	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract_watchdog.sh
+	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/install-attract.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/master/install-attract.sh
+	    wget --no-check-certificate -w 4 -O /home/osmc/.attract/emulators/scripts.cfg.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/scripts.cfg
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/Shutdown.sh.1 https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/Shutdown.sh
 	    
 	    
 # make executable            
@@ -214,6 +216,8 @@ _EOF_
 	    mv /home/osmc/install-retrosmc.sh.1 /home/osmc/install-retrosmc.sh
             mv /home/osmc/RetroPie/scripts/retropie.sh.1 /home/osmc/RetroPie/scripts/retropie.sh
             mv /home/osmc/RetroPie/scripts/retropie_watchdog.sh.1 /home/osmc/RetroPie/scripts/retropie_watchdog.sh
+            mv /home/osmc/.attract/scripts/Shutdown.sh.1 /home/osmc/.attract/scripts/Shutdown.sh
+            mv /home/osmc/.attract/emulators/scripts.cfg.1 /home/osmc/.attract/emulators/scripts.cfg
 # restart script
 
             exec /home/osmc/install-attract.sh
