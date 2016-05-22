@@ -106,6 +106,7 @@ _EOF_
 	    cd .attract
 	    mkdir layouts
 	    mkdir scripts
+	    mkdir emulators
 	    cd ~
 	    
 #Install "Smfl-pi" And Attract-Mode Dependancies
@@ -133,11 +134,16 @@ _EOF_
 
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract.sh
             wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/attract_watchdog.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/attract_watchdog.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/themes.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/themes.sh
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/emulators/scripts.cfg https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/scripts.cfg
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/shutdown.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/shutdown.sh
             
  # make executable 
  
  	    chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
+            chmod +x /home/osmc/.attract/scripts/themes.sh
+            chmod +x /home/osmc/.attract/scripts/shutdown.sh
             
             
 # get the addon archive file from github
