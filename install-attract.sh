@@ -13,12 +13,13 @@ source "/home/osmc/RetroPie/scripts/retrosmc-config.cfg"
 
 # setting up the menu
 
-cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VERSION" --menu "Welcome to the Attract-Mode Installation.\nWhat would you like to do?\n " 14 50 16)
+cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VERSION" --menu "Welcome to the Retrosmc Attract-Mode Installation.\nWhat would you like to do?\n " 14 50 16)
 
 options=(1 "Install  Retrosmc"
 	 2 "Install Attract-Mode"
-         3 "Remove Launcher Addons"
-         4 "Update scripts"
+	 3 "Install Themes"
+         4 "Remove Launcher Addons"
+         5 "Update scripts"
          )
          
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -97,12 +98,18 @@ _EOF_
 
             sudo apt-get update 2>&1 | dialog --title "Updating package database..." --infobox "\nPlease wait...\n" 11 70
             sudo apt-get --show-progress -y install dialog git pv bzip2 psmisc libusb-1.0 alsa-utils pulseaudio 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Installing dialog and pv programs if they are not present" --gauge "\nPlease wait...\n" 11 70
+            
 #download compile and install Attract-Mode
 	    cd ~
 	    mkdir develop
+	    mkdir .attract
+	    cd .attract
+	    mkdir layouts
+	    mkdir scripts
+	    cd ~
 	    
 #Install "Smfl-pi" And Attract-Mode Dependancies
-
+           
 	   sudo apt-get install cmake libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg62-turbo-dev libfreetype6-dev  libudev-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev libavresample-dev libfontconfig1-dev 
 
 #Download and build sfml-pi
@@ -131,8 +138,8 @@ _EOF_
  
  	    chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
-
-
+            
+            
 # get the addon archive file from github
 
 	  wget --no-check-certificate -w 4 -O plugin.program.attract-launcher-0.0.1.tar.gz https://raw.githubusercontent.com/PiDiaries/Retroattract/master/plugin.program.attract-launcher-0.0.1.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Addon" --gauge "\nPlease wait...\n"  11 70
@@ -155,6 +162,17 @@ _EOF_
             ;;
         
         3)
+        #Install Themes
+        
+        wget --no-check-certificate -w 4 -O /home/osmc/themes.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/themes.sh
+        
+        chmod +x /home/osmc/themes.sh
+        sudo ./themes.sh
+        
+        exec /home/osmc/install-attract.sh
+            ;;
+        
+        4)
 
 # delete the addon from kodi addon directory
 
@@ -165,7 +183,7 @@ _EOF_
 
             exec /home/osmc/install-attract.sh
             ;;
-        4)
+        5)
 
 # download new versions of all scripts and make them executable
 	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/retropie.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/scripts/retropie.sh
@@ -196,4 +214,5 @@ _EOF_
             ;;
     esac
 done
+
 
