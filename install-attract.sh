@@ -207,7 +207,7 @@ _EOF_
 	  rm robospinbetanew.tar.gz
            
 #Get Attract config
-            wget --no-check-certificate -w 4 -O /home/osmc/.attract/ https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/scripts.cfg
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/attract.cfg https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/attract.cfg
            exec /home/osmc/install-attract.sh
             ;;
             
