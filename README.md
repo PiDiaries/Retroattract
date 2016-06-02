@@ -29,6 +29,10 @@ chmod +x install-attract.sh
  Install Retrosmc first and use Binaries. Then Attarct, it will compile itself so go get pizza.  
  Set the controllers up in Emulationstation first for Libretro Emulators.  Then have fun configuring Attract-Mode. 
 
+2/5/16 
+Added the option to install some Emulator Configurations for Attract-Mode.  These should cover all the standard RetroPie Libretro Emulators that use the retroarch.cfg.  So no experimental emulators etc. 
+
+WARNING.  I don't have roms for all systems so I couldn't test them all. So some of the rarer systems might need tweaked. 
 
 Credits
 
