@@ -30,9 +30,11 @@ chmod +x install-attract.sh
  Set the controllers up in Emulationstation first for Libretro Emulators.  Then have fun configuring Attract-Mode. 
 
 2/5/16 
-Added the option to install some Emulator Configurations for Attract-Mode.  These should cover all the standard RetroPie Libretro Emulators that use the retroarch.cfg.  So no experimental emulators etc. 
+Added the option to install some Emulator Configurations for Attract-Mode.  These should cover all the standard RetroPie Libretro Emulators that use the retroarch.cfg.  So no experimental emulators etc.  To save space Mame & FBA use the same folders in the Arcade directory for Artwork. 
 
 WARNING.  I don't have roms for all systems so I couldn't test them all. So some of the rarer systems might need tweaked. 
+
+I've also added some of the folders that are on Floobs image for Artwork. 
 
 Credits
 
