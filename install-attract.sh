@@ -13,12 +13,12 @@ source "/home/osmc/RetroPie/scripts/retrosmc-config.cfg"
 
 # setting up the menu
 
-cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VERSION" --menu "Welcome to the Retrosmc Attract-Mode Installation.\nWhat would you like to do?\n " 14 50 16)
+cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VERSION" --menu "Welcome to the Retrosmc Attract-Mode Installation.\nWhat would you like to do?\n " 14 100 16)
 
 options=(1 "Install  Retrosmc"
 	 2 "Install Attract-Mode"
 	 3 "Install Themes"
-	 4 "Install Libretro Emulator Configs"
+	 4 "Install Libretro Emulator Configs + Basic Setup"
          5 "Remove Launcher Addons"
          6 "Update scripts"
          )
@@ -195,7 +195,19 @@ _EOF_
             
             (pv -n emulators.tar.gz | sudo tar xzf - -C /home/osmc/.attract/emulators/ ) 2>&1 | dialog --title "Extracting Emulator Configuration Files" --gauge "\nPlease wait...\n" 11 70
             dialog --backtitle "Attract-Mode setup script" --title "Installing Files" --msgbox "\nEmulator Configuration Files installed.\n" 11 70
+            
+            #Install Robospin-betanew
+            
+            wget --no-check-certificate -w 4 -O robospinbetanew.tar.gz https://github.com/PiDiaries/Retroattract/raw/master/themes/robospinbetanew.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Theme" --gauge "\nPlease wait...\n"  11 70
+
+        
+	  (pv -n robospinbetanew.tar.gz | sudo tar xzf - -C /home/osmc/.attract/layouts/ ) 2>&1 | dialog --title "Extracting Theme" --gauge "\nPlease wait...\n" 11 70
+	  dialog --backtitle "Attract-Mode setup script" --title "Installing set up" --msgbox "\nSetup installed.\n" 11 70
+	  
+	  rm robospinbetanew.tar.gz
            
+#Get Attract config
+            wget --no-check-certificate -w 4 -O /home/osmc/.attract/ https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/scripts.cfg
            exec /home/osmc/install-attract.sh
             ;;
             
