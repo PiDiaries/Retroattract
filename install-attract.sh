@@ -18,8 +18,9 @@ cmd=(dialog --backtitle "attract-mode scripts installation - Version $CURRENT_VE
 options=(1 "Install  Retrosmc"
 	 2 "Install Attract-Mode"
 	 3 "Install Themes"
-         4 "Remove Launcher Addons"
-         5 "Update scripts"
+	 4 "Install Libretro Emulator Configs"
+         5 "Remove Launcher Addons"
+         6 "Update scripts"
          )
          
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -138,13 +139,20 @@ _EOF_
             wget --no-check-certificate -w 4 -O /home/osmc/.attract/emulators/scripts.cfg https://raw.githubusercontent.com/PiDiaries/Retroattract/master/Configs/scripts.cfg
             wget --no-check-certificate -w 4 -O /home/osmc/.attract/scripts/Shutdown.sh https://raw.githubusercontent.com/PiDiaries/Retroattract/master/scripts/Shutdown.sh
             
- # make executable 
+# make executable 
  
  	    chmod +x /home/osmc/RetroPie/scripts/attract.sh
             chmod +x /home/osmc/RetroPie/scripts/attract_watchdog.sh
             chmod +x /home/osmc/.attract/scripts/themes.sh
             chmod +x /home/osmc/.attract/scripts/Shutdown.sh
+
+
             
+
+# Add extra folders
+            cd /home/osmc/RetroPie/roms/
+            mkdir amstradcpc/boxart amstradcpc/marquee amstradcpc/snap amstradcpc/wheel arcade/flyer arcade/marquee arcade/snap arcade/wheel atari2600/boxart atari2600/marquee atari2600/snap atari2600/wheel atari7800/wheel atari7800/snap atari7800/marquee atari7800/boxart dreamcast/boxart dreamcast/marquee dreamcast/snap dreamcast/wheel atarilynx/boxart atarilynx/marquee atarilynx/snap atarilynx/wheel gamegear/boxart gamegear/marquee gamegear/snap gamegear/wheel gb/boxart gb/marquee gb/snap gb/wheel/ gba/boxart gba/marquee gba/snap gba/wheel gbc/boxart gbc/marquee gbc/snap gbc/wheel mastersystem/boxart mastersystem/marquee mastersystem/snap mastersystem/wheel megadrive/boxart megadrive/marquee megadrive/snap megadrive/wheel n64/boxart n64/marquee n64/snap n64/wheel nes/boxart nes/marquee nes/snap nes/wheel psx/boxart psx/marquee/ psx/snap psx/wheel snes/boxart snes/marquee snes/snap snes/wheel ngp/boxart ngp/marquee ngp/snap ngp/wheel  ngpc/boxart ngpc/marquee ngpc/snap ngpc/wheel neogeo/boxart neogeo/marquee neogeo/snap neogeo/wheel pcengine/boxart pcengine/marquee pcengine/snap pcengine/wheel psx/boxart psx/marquee psx/snap psx/wheel 32x/boxart 32x/marquee 32x/snap 32x/wheel segacd/boxart segacd/marquee segacd/snap segacd/wheel sg-1000/boxart sg-1000/marquee sg-1000/snap sg-1000/wheel vectrex/boxart vectrex/marquee vectrex/snap vectrex/wheel videopac/boxart videopac/marquee videopac/snap videopac/wheel wonderswan/boxart wonderswan/marquee wonderswan/snap wonderswan/wheel wonderswancolor/boxart wonderswancolor/marquee wonderswancolor/snap wonderswancolor/wheel zxspectrum/boxart zxspectrum/marquee zxspectrum/snap zxspectrum/wheel
+             
             
 # get the addon archive file from github
 
@@ -179,6 +187,19 @@ _EOF_
             ;;
         
         4)
+        #Download and extract the Emulator Cofiguration files. 
+            cd ~
+            mkdir .attract
+            mkdir .attract/emulators/
+            wget --no-check-certificate -w 4 -O emulators.tar.gz https://github.com/PiDiaries/Retroattract/raw/master/emulators.tar.gz 2>&1 | grep --line-buffered -oP "(\d+(\.\d+)?(?=%))" | dialog --title "Downloading Archive" --gauge "\nPlease wait...\n"  11 70
+            
+            (pv -n emulators.tar.gz | sudo tar xzf - -C /home/osmc/.attract/emulators/ ) 2>&1 | dialog --title "Extracting Emulator Configuration Files" --gauge "\nPlease wait...\n" 11 70
+            dialog --backtitle "Attract-Mode setup script" --title "Installing Files" --msgbox "\nEmulator Configuration Files installed.\n" 11 70
+           
+           exec /home/osmc/install-attract.sh
+            ;;
+            
+        5)
 
 # delete the addon from kodi addon directory
 
@@ -189,7 +210,7 @@ _EOF_
 
             exec /home/osmc/install-attract.sh
             ;;
-        5)
+        6)
 
 # download new versions of all scripts and make them executable
 	    wget --no-check-certificate -w 4 -O /home/osmc/RetroPie/scripts/retropie.sh.1 https://raw.githubusercontent.com/mcobit/retrosmc/master/scripts/retropie.sh
@@ -224,5 +245,4 @@ _EOF_
             ;;
     esac
 done
-
 
